@@ -41,7 +41,10 @@ export async function recordEvent(event: AskEvent): Promise<void> {
       }
     }
 
-    pipeline.lpush("stats:recentEvents", JSON.stringify(event));
+    // @upstash/redis auto-serializes non-string values (and auto-parses
+    // them back on read) -- pushing the object directly and letting the
+    // client handle it avoids double-encoding.
+    pipeline.lpush("stats:recentEvents", event);
     pipeline.ltrim("stats:recentEvents", 0, MAX_RECENT_EVENTS - 1);
 
     await pipeline.exec();
@@ -93,7 +96,7 @@ export async function getStatsSummary(): Promise<StatsSummary> {
     redis.get<number>("stats:latencyCount"),
     redis.hgetall<Record<string, number>>("stats:paperCounts"),
     redis.zrange("stats:daily", 0, -1, { withScores: true }),
-    redis.lrange<string>("stats:recentEvents", 0, MAX_RECENT_EVENTS - 1),
+    redis.lrange<AskEvent>("stats:recentEvents", 0, MAX_RECENT_EVENTS - 1),
   ]);
 
   const topPapers = Object.entries(paperCounts ?? {})
@@ -110,15 +113,9 @@ export async function getStatsSummary(): Promise<StatsSummary> {
   }
   dailyCounts.sort((a, b) => a.date.localeCompare(b.date));
 
-  const recentEvents = recentRaw
-    .map((raw) => {
-      try {
-        return JSON.parse(raw) as AskEvent;
-      } catch {
-        return null;
-      }
-    })
-    .filter((e): e is AskEvent => e !== null);
+  const recentEvents = recentRaw.filter(
+    (e): e is AskEvent => e !== null && typeof e === "object",
+  );
 
   return {
     configured: true,
