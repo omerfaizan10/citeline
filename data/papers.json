@@ -1,0 +1,121 @@
+[
+  {
+    "id": "1706.03762",
+    "title": "Attention Is All You Need",
+    "authors": "Vaswani et al.",
+    "year": 2017,
+    "topic": "Transformers"
+  },
+  {
+    "id": "1810.04805",
+    "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    "authors": "Devlin et al.",
+    "year": 2018,
+    "topic": "Transformers"
+  },
+  {
+    "id": "2005.14165",
+    "title": "Language Models are Few-Shot Learners",
+    "authors": "Brown et al.",
+    "year": 2020,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2203.02155",
+    "title": "Training language models to follow instructions with human feedback",
+    "authors": "Ouyang et al.",
+    "year": 2022,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2201.11903",
+    "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    "authors": "Wei et al.",
+    "year": 2022,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2106.09685",
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "authors": "Hu et al.",
+    "year": 2021,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2005.11401",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": "Lewis et al.",
+    "year": 2020,
+    "topic": "Retrieval & Generation"
+  },
+  {
+    "id": "1512.03385",
+    "title": "Deep Residual Learning for Image Recognition",
+    "authors": "He et al.",
+    "year": 2015,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "1505.04597",
+    "title": "U-Net: Convolutional Networks for Biomedical Image Segmentation",
+    "authors": "Ronneberger et al.",
+    "year": 2015,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "2010.11929",
+    "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+    "authors": "Dosovitskiy et al.",
+    "year": 2020,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "2103.00020",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "authors": "Radford et al.",
+    "year": 2021,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "2006.11239",
+    "title": "Denoising Diffusion Probabilistic Models",
+    "authors": "Ho et al.",
+    "year": 2020,
+    "topic": "Generative Models"
+  },
+  {
+    "id": "1406.2661",
+    "title": "Generative Adversarial Networks",
+    "authors": "Goodfellow et al.",
+    "year": 2014,
+    "topic": "Generative Models"
+  },
+  {
+    "id": "1312.6114",
+    "title": "Auto-Encoding Variational Bayes",
+    "authors": "Kingma & Welling",
+    "year": 2013,
+    "topic": "Generative Models"
+  },
+  {
+    "id": "1301.3781",
+    "title": "Efficient Estimation of Word Representations in Vector Space",
+    "authors": "Mikolov et al.",
+    "year": 2013,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1412.6980",
+    "title": "Adam: A Method for Stochastic Optimization",
+    "authors": "Kingma & Ba",
+    "year": 2014,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1502.03167",
+    "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+    "authors": "Ioffe & Szegedy",
+    "year": 2015,
+    "topic": "Foundations"
+  }
+]
