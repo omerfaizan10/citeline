@@ -7,13 +7,13 @@ every answer traceable back to the paper it came from.
 
 **Live demo:** _add your Vercel URL here once deployed_
 
-## Why this exists
+## Why I built this
 
-Most beginner RAG demos wrap an API call and call it a day. The point of
-this project was to build the retrieval layer myself and be able to defend
-every decision in it: how the corpus is chunked, why the model isn't
-allowed to answer from anything but the retrieved excerpts, and what
-happens when the answer genuinely isn't in the corpus.
+Most RAG demos are a thin wrapper around an API call. I wanted to build the
+retrieval layer myself and understand every piece of it: how the corpus is
+chunked, why the model shouldn't be allowed to answer from anything but the
+retrieved excerpts, and what should happen when the answer genuinely isn't
+in the corpus.
 
 ## How it works
 
@@ -22,33 +22,32 @@ happens when the answer genuinely isn't in the corpus.
    retrieval, not signal), splits the remaining text into ~300-token
    chunks with a 50-token overlap, and embeds every chunk with OpenAI's
    `text-embedding-3-small`, shortened to 512 dimensions via the API's
-   `dimensions` parameter — a deliberate size/quality trade-off that keeps
-   the resulting `data/embeddings.json` small enough to ship in the repo.
+   `dimensions` parameter — a size/quality trade-off that keeps the
+   resulting `data/embeddings.json` small enough to ship in the repo.
 2. **Retrieval (runtime, Node)** — a question is embedded the same way,
    compared against every chunk with cosine similarity, and the top
    matches are deduplicated down to their source papers.
 3. **Generation** — the top excerpts are handed to `gpt-4o-mini` with a
-   system prompt that explicitly forbids answering from anything the model
-   already knows about these papers — only the retrieved text. The answer
-   streams back to the browser token by token.
+   system prompt that forbids answering from anything the model already
+   knows about these papers — only the retrieved text. The answer streams
+   back to the browser token by token.
 
-## Architecture decisions worth knowing (and defending in an interview)
+## A few design decisions
 
 - **In-memory vector search instead of Pinecone/Chroma.** The corpus is
   small and static (17 papers, ~1,000 chunks), so a linear cosine-similarity
   scan over a JSON file runs in a few milliseconds and needs no external
-  database, no hosting cost, and no extra moving part to keep alive. This
+  database, no hosting cost, and no extra moving part to keep alive. That
   stops being the right call well before 100k+ chunks or frequently
   changing data — at that point I'd reach for pgvector or Pinecone instead.
 - **Citations come from retrieval, not from the model.** The model never
   emits `[1]`-style citation markers — those are notoriously easy for LLMs
-  to get wrong (right marker, wrong paper). Instead, the citation chips
-  under each answer are built directly from the chunks retrieval actually
-  used, so they're always accurate by construction.
-- **The corpus is fixed on purpose.** This is a portfolio piece meant to
-  demonstrate a working RAG pipeline end to end, not a general-purpose
-  paper search engine — the scope is intentionally small enough to reason
-  about completely.
+  to get wrong (right marker, wrong paper). The citation chips under each
+  answer are built directly from the chunks retrieval actually used, so
+  they're accurate by construction.
+- **The corpus is fixed on purpose.** This is meant to be a working RAG
+  pipeline I can reason about completely end to end, not a general-purpose
+  paper search engine.
 
 ## Stack
 
@@ -65,19 +64,18 @@ npm run dev
 ```
 
 `data/embeddings.json` is committed to the repo, so the app works
-immediately — you don't need to run the ingestion pipeline just to try it.
+immediately — no need to run the ingestion pipeline just to try it.
 
 ## Rebuilding the corpus
 
-Only needed if you change `data/papers.json` (swap in your own papers) or
+Only needed if you change `data/papers.json` (swap in different papers) or
 want to re-chunk/re-embed:
 
 ```bash
 cd scripts
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-export OPENAI_API_KEY=sk-...
-python ingest.py
+python ingest.py   # reads OPENAI_API_KEY from ../.env.local
 ```
 
 This writes a fresh `data/embeddings.json`. Cost for the default 17-paper
@@ -89,12 +87,12 @@ Push to GitHub, then import the repo in Vercel. Add `OPENAI_API_KEY` as an
 environment variable in the Vercel project settings — no other
 configuration is needed.
 
-## Limitations / what I'd do next
+## Limitations / what's next
 
 - No conversation memory beyond the last few turns — long follow-up chains
   can lose earlier context.
 - The bibliography-stripping heuristic in `ingest.py` is a regex looking
   for a "References" heading past 40% of the document; it's right most of
-  the time but not verified per-paper.
-- At a larger corpus size I'd move retrieval to a real vector database and
-  add re-ranking rather than relying on cosine similarity alone.
+  the time but not verified per paper.
+- At a larger corpus size, retrieval should move to a real vector database
+  with re-ranking rather than cosine similarity alone.

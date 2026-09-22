@@ -7,9 +7,11 @@ For each paper in data/papers.json:
   3. Chunk the text by token count with a small overlap.
   4. Embed every chunk with the OpenAI embeddings API.
 
+Reads OPENAI_API_KEY from the repo's .env.local (same file the Next.js app
+uses) if it's set there, otherwise from the environment.
+
 Run from the scripts/ directory:
     pip install -r requirements.txt
-    export OPENAI_API_KEY=sk-...
     python ingest.py
 """
 
@@ -23,12 +25,15 @@ from pathlib import Path
 
 import requests
 import tiktoken
+from dotenv import load_dotenv
 from openai import OpenAI
 from pypdf import PdfReader
 from tqdm import tqdm
 
 SCRIPT_DIR = Path(__file__).parent
 ROOT_DIR = SCRIPT_DIR.parent
+
+load_dotenv(ROOT_DIR / ".env.local")
 DATA_DIR = ROOT_DIR / "data"
 CACHE_DIR = SCRIPT_DIR / ".cache"
 
@@ -97,7 +102,10 @@ def embed_batch(client: OpenAI, texts: list[str]) -> list[list[float]]:
 
 def main() -> None:
     if not os.environ.get("OPENAI_API_KEY"):
-        sys.exit("OPENAI_API_KEY is not set. export it before running this script.")
+        sys.exit(
+            "OPENAI_API_KEY is not set. Add it to .env.local at the repo "
+            "root (see env.example), or export it before running this script."
+        )
 
     papers = json.loads(PAPERS_PATH.read_text())
     encoding = tiktoken.get_encoding("cl100k_base")

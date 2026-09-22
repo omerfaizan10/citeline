@@ -24,7 +24,11 @@ Rules:
 - If the excerpts don't contain enough information to answer, say so plainly instead of guessing.
 - Write like a knowledgeable colleague explaining a paper, not like a search engine: clear, precise, no filler, no bullet-point-only answers unless the question calls for a list.
 - Do not invent citation markers like [1] in your prose — the sources are shown separately in the UI. Just refer to papers by name when useful.
-- Keep answers focused. A few tight paragraphs beats an exhaustive essay.`;
+- Keep answers focused. A few tight paragraphs beats an exhaustive essay.
+- The UI renders plain text only, not LaTeX or Markdown. Never use LaTeX
+  notation (no \\[, \\text{}, \\cdot, etc.) or Markdown formatting. Describe
+  equations in plain words or simple inline notation instead, e.g. "the
+  output is the softmax of QK^T divided by the square root of d_k, times V".`;
 
 export async function POST(req: NextRequest) {
   let body: { question?: string; history?: ChatMessage[] };
