@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { cosineSimilarity, toCitations, type ScoredChunk } from "@/lib/search";
+import {
+  cosineSimilarity,
+  toCitations,
+  findDominantPaper,
+  type ScoredChunk,
+} from "@/lib/search";
 
 describe("cosineSimilarity", () => {
   it("returns 1 for identical vectors", () => {
@@ -78,5 +83,42 @@ describe("toCitations", () => {
   it("rounds scores to 3 decimal places", () => {
     const chunks: ScoredChunk[] = [makeChunk({ score: 0.123456789 })];
     expect(toCitations(chunks)[0].score).toBe(0.123);
+  });
+});
+
+describe("findDominantPaper", () => {
+  it("returns the paper id when it meets the minimum count", () => {
+    const chunks: ScoredChunk[] = [
+      makeChunk({ paperId: "1706.03762" }),
+      makeChunk({ paperId: "1706.03762" }),
+      makeChunk({ paperId: "1706.03762" }),
+      makeChunk({ paperId: "1810.04805" }),
+    ];
+    expect(findDominantPaper(chunks, 3)).toBe("1706.03762");
+  });
+
+  it("returns null when no paper reaches the minimum count", () => {
+    const chunks: ScoredChunk[] = [
+      makeChunk({ paperId: "1706.03762" }),
+      makeChunk({ paperId: "1706.03762" }),
+      makeChunk({ paperId: "1810.04805" }),
+      makeChunk({ paperId: "2005.14165" }),
+    ];
+    expect(findDominantPaper(chunks, 3)).toBeNull();
+  });
+
+  it("returns null for an empty list", () => {
+    expect(findDominantPaper([], 1)).toBeNull();
+  });
+
+  it("picks the strict majority when counts are tied at the threshold", () => {
+    const chunks: ScoredChunk[] = [
+      makeChunk({ paperId: "A" }),
+      makeChunk({ paperId: "A" }),
+      makeChunk({ paperId: "B" }),
+      makeChunk({ paperId: "B" }),
+    ];
+    // Neither reaches minCount=3, so still null even though it's a tie.
+    expect(findDominantPaper(chunks, 3)).toBeNull();
   });
 });

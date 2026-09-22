@@ -6,7 +6,7 @@ import {
   EMBEDDING_DIMENSIONS,
 } from "@/lib/openai";
 import {
-  searchChunks,
+  adaptiveSearch,
   toCitations,
   CorpusNotIngestedError,
 } from "@/lib/search";
@@ -78,14 +78,26 @@ export async function POST(req: NextRequest) {
   try {
     const openai = getOpenAIClient();
 
+    // Retrieval needs to see what the conversation is actually about, not
+    // just the latest message in isolation -- a bare follow-up like "go
+    // into more detail" carries almost no topical signal on its own and
+    // would otherwise retrieve near-random chunks. Folding in the last
+    // couple of turns grounds the embedding in the real topic.
+    const retrievalQuery = [
+      ...history.slice(-2).map((h) => h.content),
+      question,
+    ]
+      .join("\n")
+      .slice(0, 2000);
+
     const embeddingResponse = await openai.embeddings.create({
       model: EMBEDDING_MODEL,
-      input: question,
+      input: retrievalQuery,
       dimensions: EMBEDDING_DIMENSIONS,
     });
     const queryEmbedding = embeddingResponse.data[0].embedding;
 
-    const matches = searchChunks(queryEmbedding, 6);
+    const matches = adaptiveSearch(queryEmbedding, 6);
     const citations = toCitations(matches).slice(0, 5);
 
     const context = matches

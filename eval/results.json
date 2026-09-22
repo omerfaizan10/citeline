@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-09-22T11:45:03.427174+00:00",
+  "generatedAt": "2026-09-22T12:10:40.694304+00:00",
   "baseUrl": "http://localhost:3000",
   "totalQuestions": 30,
   "top1Accuracy": 0.767,
   "topKAccuracy": 0.9,
-  "avgLatencySeconds": 2.71,
+  "avgLatencySeconds": 3.31,
   "errorCount": 0,
   "results": [
     {
@@ -19,7 +19,7 @@
       ],
       "hitTop1": false,
       "hitTopK": true,
-      "latencySeconds": 2.7,
+      "latencySeconds": 3.38,
       "answerPreview": "The core innovation of the Transformer architecture is its reliance entirely on self-attention mechanisms to compute representations of input and outp",
       "error": null
     },
@@ -29,13 +29,12 @@
       "citedPaperIds": [
         "1907.11692",
         "1906.08237",
-        "2003.10555",
-        "2006.11477"
+        "2003.10555"
       ],
       "hitTop1": false,
       "hitTopK": false,
       "latencySeconds": 2.95,
-      "answerPreview": "BERT's masked language modeling (MLM) pretraining objective involves selecting a random sample of tokens from the input sequence and replacing them wi",
+      "answerPreview": "BERT's masked language modeling (MLM) pretraining objective involves randomly selecting a portion of the tokens in the input sequence and replacing th",
       "error": null
     },
     {
@@ -47,7 +46,7 @@
       ],
       "hitTop1": false,
       "hitTopK": true,
-      "latencySeconds": 1.55,
+      "latencySeconds": 2.42,
       "answerPreview": "LoRA, or Low-Rank Adaptation, freezes the pre-trained model weights while training low-rank decomposition matrices that are injected into each layer o",
       "error": null
     },
@@ -59,8 +58,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 3.35,
-      "answerPreview": "RAG, or Retrieval-Augmented Generation, combines a retriever and a generator model to enhance language generation tasks. The retriever component is de",
+      "latencySeconds": 3.72,
+      "answerPreview": "RAG, or Retrieval-Augmented Generation, combines a retriever and a generator model to enhance language generation tasks by leveraging both parametric ",
       "error": null
     },
     {
@@ -69,13 +68,12 @@
       "citedPaperIds": [
         "1512.03385",
         "1905.10437",
-        "1610.02391",
-        "1905.11946"
+        "1610.02391"
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.2,
-      "answerPreview": "Residual connections in ResNet address the degradation problem that occurs when increasing the depth of neural networks. Traditional deep networks, re",
+      "latencySeconds": 2.93,
+      "answerPreview": "Residual connections in ResNet address the degradation problem that occurs when training deeper neural networks. Traditional deep networks often face ",
       "error": null
     },
     {
@@ -86,8 +84,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 1.85,
-      "answerPreview": "The U-Net architecture employs skip connections to enhance the segmentation process by linking the contracting path, which captures context, to the ex",
+      "latencySeconds": 6.95,
+      "answerPreview": "U-Net employs skip connections to enhance the localization capabilities of the network while maintaining context information. The architecture consist",
       "error": null
     },
     {
@@ -100,8 +98,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.95,
-      "answerPreview": "The Vision Transformer (ViT) applies the Transformer architecture to images by processing them as a grid of non-overlapping patches. Each image is div",
+      "latencySeconds": 2.75,
+      "answerPreview": "The Vision Transformer (ViT) applies the Transformer architecture to images by dividing the input image into non-overlapping patches, which are then f",
       "error": null
     },
     {
@@ -112,8 +110,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.37,
-      "answerPreview": "CLIP employs a contrastive objective that focuses on maximizing the cosine similarity of the embeddings of correct (image, text) pairs while minimizin",
+      "latencySeconds": 2.38,
+      "answerPreview": "CLIP employs a contrastive objective that involves training a multi-modal embedding space by jointly optimizing an image encoder and a text encoder. T",
       "error": null
     },
     {
@@ -126,8 +124,8 @@
       ],
       "hitTop1": false,
       "hitTopK": false,
-      "latencySeconds": 2.64,
-      "answerPreview": "The forward diffusion process in Denoising Diffusion Probabilistic Models (DDPMs) involves a fixed noising process that adds diagonal Gaussian noise a",
+      "latencySeconds": 7.86,
+      "answerPreview": "The forward diffusion process in Denoising Diffusion Probabilistic Models (DDPMs) is defined as a Markovian process that produces latent variables by ",
       "error": null
     },
     {
@@ -140,8 +138,8 @@
       ],
       "hitTop1": false,
       "hitTopK": true,
-      "latencySeconds": 2.72,
-      "answerPreview": "In the GAN framework, the generator and discriminator are set up to compete against each other in a minimax game. The generator's role is to transform",
+      "latencySeconds": 3.71,
+      "answerPreview": "In the GAN framework, a minimax game is established between the generator and the discriminator through a competitive training process. The generator,",
       "error": null
     },
     {
@@ -155,7 +153,7 @@
       ],
       "hitTop1": false,
       "hitTopK": true,
-      "latencySeconds": 3.0,
+      "latencySeconds": 1.96,
       "answerPreview": "The reparameterization trick introduced in the Auto-Encoding Variational Bayes (AEVB) paper involves transforming the variational lower bound to yield",
       "error": null
     },
@@ -171,7 +169,7 @@
       ],
       "hitTop1": false,
       "hitTopK": false,
-      "latencySeconds": 2.43,
+      "latencySeconds": 2.64,
       "answerPreview": "Word2vec learns word embeddings by predicting surrounding words in a sentence, which allows the word vectors to represent the distribution of contexts",
       "error": null
     },
@@ -183,8 +181,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.54,
-      "answerPreview": "The Adam optimizer combines elements from both AdaGrad and RMSProp by utilizing a preconditioner that adapts to the geometry of the data, similar to h",
+      "latencySeconds": 2.02,
+      "answerPreview": "The Adam optimizer combines the advantages of AdaGrad and RMSProp by effectively handling sparse gradients and adapting to non-stationary objectives. ",
       "error": null
     },
     {
@@ -195,7 +193,7 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.21,
+      "latencySeconds": 2.08,
       "answerPreview": "Batch Normalization addresses the problem of internal covariate shift, which refers to the change in the distribution of each layer's inputs during tr",
       "error": null
     },
@@ -207,8 +205,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 3.46,
-      "answerPreview": "Chain-of-thought prompting enhances reasoning in large language models by providing a structured approach that involves generating a series of interme",
+      "latencySeconds": 3.14,
+      "answerPreview": "Chain-of-thought prompting enhances reasoning in large language models by providing a structured approach to problem-solving that mimics human reasoni",
       "error": null
     },
     {
@@ -221,8 +219,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 3.23,
-      "answerPreview": "Reinforcement Learning from Human Feedback (RLHF) is a training approach that typically involves three phases: supervised fine-tuning (SFT), preferenc",
+      "latencySeconds": 4.57,
+      "answerPreview": "Reinforcement Learning from Human Feedback (RLHF) is a training approach that combines supervised learning with reinforcement learning to align langua",
       "error": null
     },
     {
@@ -233,8 +231,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.44,
-      "answerPreview": "GraphSAGE generates embeddings for unseen nodes by leveraging a set of learned aggregator functions that aggregate feature information from a node's l",
+      "latencySeconds": 3.23,
+      "answerPreview": "GraphSAGE generates embeddings for unseen nodes by leveraging a framework that samples and aggregates feature information from a node's local neighbor",
       "error": null
     },
     {
@@ -245,8 +243,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.38,
-      "answerPreview": "Graph Attention Networks (GATs) utilize a masked self-attention mechanism to compute hidden representations of nodes by attending to their neighbors. ",
+      "latencySeconds": 2.43,
+      "answerPreview": "Graph Attention Networks (GATs) utilize a masked self-attention mechanism to compute attention coefficients over the features of neighboring nodes in ",
       "error": null
     },
     {
@@ -257,8 +255,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 3.11,
-      "answerPreview": "Wav2vec 2.0 learns speech representations through a self-supervised learning framework that utilizes raw audio data. The process begins with encoding ",
+      "latencySeconds": 3.21,
+      "answerPreview": "Wav2vec 2.0 employs a self-supervised learning framework to learn speech representations from raw audio data without relying on labeled examples. The ",
       "error": null
     },
     {
@@ -269,7 +267,7 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 1.79,
+      "latencySeconds": 1.99,
       "answerPreview": "Whisper utilizes a substantial training dataset comprising 680,000 hours of labeled audio, making it one of the largest datasets ever created for supe",
       "error": null
     },
@@ -282,8 +280,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.14,
-      "answerPreview": "SimCLR constructs positive pairs for contrastive learning by applying a stochastic data augmentation module to the same data example. This process gen",
+      "latencySeconds": 2.04,
+      "answerPreview": "SimCLR constructs positive pairs for contrastive learning by applying stochastic data augmentation to the same data example. Specifically, for a given",
       "error": null
     },
     {
@@ -294,8 +292,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.4,
-      "answerPreview": "Momentum Contrast (MoCo) utilizes a queue and a momentum encoder to build large and consistent dictionaries for unsupervised learning with contrastive",
+      "latencySeconds": 2.48,
+      "answerPreview": "Momentum Contrast (MoCo) employs a queue and a momentum encoder to build a large and consistent dictionary for unsupervised learning with contrastive ",
       "error": null
     },
     {
@@ -306,8 +304,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 3.63,
-      "answerPreview": "Proximal Policy Optimization (PPO) employs a clipped objective to constrain policy updates by modifying the surrogate objective function. The main obj",
+      "latencySeconds": 3.71,
+      "answerPreview": "Proximal Policy Optimization (PPO) employs a clipped surrogate objective to constrain policy updates by modifying the probability ratio used in the op",
       "error": null
     },
     {
@@ -318,7 +316,7 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.54,
+      "latencySeconds": 3.32,
       "answerPreview": "Grad-CAM, or Gradient-weighted Class Activation Mapping, produces visual explanations for CNN predictions by utilizing the gradients of a target conce",
       "error": null
     },
@@ -330,8 +328,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.97,
-      "answerPreview": "SHAP, or SHapley Additive exPlanation values, unifies various feature attribution methods by introducing a novel perspective that treats any explanati",
+      "latencySeconds": 4.1,
+      "answerPreview": "SHAP, or SHapley Additive exPlanation, unifies various feature attribution methods by introducing a framework that defines a unique measure of feature",
       "error": null
     },
     {
@@ -342,8 +340,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.47,
-      "answerPreview": "The key idea behind FlashAttention's IO-aware algorithm is to minimize memory accesses between different levels of GPU memory, specifically between hi",
+      "latencySeconds": 2.41,
+      "answerPreview": "The key idea behind FlashAttention's IO-aware algorithm is to minimize the number of memory accesses between different levels of GPU memory, specifica",
       "error": null
     },
     {
@@ -354,8 +352,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 3.06,
-      "answerPreview": "QLoRA combines quantization with LoRA fine-tuning through two primary techniques: 4-bit NormalFloat (NF4) quantization and Double Quantization. In thi",
+      "latencySeconds": 3.74,
+      "answerPreview": "QLoRA combines quantization with LoRA fine-tuning by utilizing a 4-bit quantization technique alongside Low-Rank Adapters (LoRA) to efficiently fine-t",
       "error": null
     },
     {
@@ -366,8 +364,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 2.07,
-      "answerPreview": "The Switch Transformer routes tokens to a sparse feed-forward network (FFN) layer, specifically a Switch FFN layer. In this architecture, each token i",
+      "latencySeconds": 4.06,
+      "answerPreview": "The Switch Transformer routes tokens to a set of experts, specifically to a sparse feedforward network (FFN) layer that operates independently on the ",
       "error": null
     },
     {
@@ -381,8 +379,8 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 4.08,
-      "answerPreview": "Megatron-LM employs model parallelism to split a model's training across GPUs by vertically partitioning the computation and parameters in each layer.",
+      "latencySeconds": 3.69,
+      "answerPreview": "Megatron-LM employs model parallelism to split a model's training across GPUs by vertically partitioning the computation and parameters in each layer ",
       "error": null
     },
     {
@@ -393,7 +391,7 @@
       ],
       "hitTop1": true,
       "hitTopK": true,
-      "latencySeconds": 3.96,
+      "latencySeconds": 3.36,
       "answerPreview": "The Scaling Laws paper investigates the empirical relationships between model size, dataset size, and the amount of compute used for training neural l",
       "error": null
     }

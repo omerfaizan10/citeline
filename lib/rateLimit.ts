@@ -26,7 +26,15 @@ export type RateLimitResult = {
   retryAfterSeconds?: number;
 };
 
+// Vercel always resolves a real client IP via x-forwarded-for, so a
+// loopback key only ever shows up in local dev/testing -- never for a real
+// visitor. Exempting it means the eval script and manual local testing
+// don't trip the limiter and mask genuine results.
+const LOOPBACK_KEYS = new Set(["127.0.0.1", "::1"]);
+
 export function checkRateLimit(key: string): RateLimitResult {
+  if (LOOPBACK_KEYS.has(key)) return { allowed: true };
+
   const now = Date.now();
   const windowStart = now - WINDOW_MS;
 

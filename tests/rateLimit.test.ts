@@ -34,6 +34,13 @@ describe("checkRateLimit", () => {
     expect(checkRateLimit(keyB).allowed).toBe(true);
   });
 
+  it("never blocks loopback keys, used for local dev/eval testing", () => {
+    for (let i = 0; i < MAX_REQUESTS + 10; i++) {
+      expect(checkRateLimit("::1").allowed).toBe(true);
+      expect(checkRateLimit("127.0.0.1").allowed).toBe(true);
+    }
+  });
+
   it("allows requests again once the window passes", () => {
     vi.useFakeTimers();
     const key = `test-${Math.random()}`;

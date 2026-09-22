@@ -25,9 +25,16 @@ in the corpus.
    `text-embedding-3-small`, shortened to 512 dimensions via the API's
    `dimensions` parameter — a size/quality trade-off that keeps the
    resulting `data/embeddings.json` small enough to ship in the repo.
-2. **Retrieval (runtime, Node)** — a question is embedded the same way,
-   compared against every chunk with cosine similarity, and the top
-   matches are deduplicated down to their source papers.
+2. **Retrieval (runtime, Node)** — the question is embedded _with the last
+   couple of conversation turns folded in_ (a bare follow-up like "go into
+   more detail" carries almost no topical signal by itself), then compared
+   against every chunk with cosine similarity. If one paper clearly
+   dominates that first pass, retrieval runs a second time scoped to just
+   that paper with a much larger K, so detailed questions about a specific
+   paper actually get enough of it to answer from — a couple of runner-up
+   papers from the first pass are kept alongside as a hedge, in case that
+   "dominant" guess was really a very close neighbor instead of the right
+   paper.
 3. **Generation** — the top excerpts are handed to `gpt-4o-mini` with a
    system prompt that forbids answering from anything the model already
    knows about these papers — only the retrieved text. The answer streams
@@ -86,6 +93,18 @@ property of the system, not something I'm hiding.
 - **The corpus is fixed on purpose.** This is meant to be a working RAG
   pipeline I can reason about completely end to end, not a general-purpose
   paper search engine.
+- **Adaptive retrieval depth, not a fixed top-K.** Early on, a flat top-6
+  search across the whole corpus quietly broke on two kinds of questions:
+  follow-ups (embedding "go into more detail" alone carries no topic
+  signal — the previous turns have to be folded in) and detailed questions
+  about one specific paper (its own chunks were competing against 130
+  similar papers for a handful of slots, so the model correctly said the
+  excerpts weren't enough — technically honest, but not useful). Fixed by
+  detecting when a paper dominates the first-pass results and re-running
+  retrieval scoped to just that paper with a larger K. Verified with
+  before/after runs of the eval harness that this doesn't regress the
+  broad, cross-paper questions (steady at 77%/90%) while fixing the actual
+  reported failures.
 - **In-memory rate limiting instead of Redis.** `/api/ask` is capped at 40
   requests per 10 minutes per IP, tracked in a plain `Map`. That map isn't
   shared across serverless instances and resets on cold starts, so it's not
