@@ -11,19 +11,28 @@ import {
   CorpusNotIngestedError,
 } from "@/lib/search";
 import { checkRateLimit, getClientKey } from "@/lib/rateLimit";
+import { recordEvent, type AskEvent } from "@/lib/stats";
 import type { ChatMessage } from "@/lib/types";
 
 export const runtime = "nodejs";
 
 const MAX_QUESTION_LENGTH = 800;
-const MAX_HISTORY_TURNS = 4;
+// gpt-4o-mini's context window (128k tokens) comfortably fits far more than
+// this; the real constraint is conversational coherence, not tokens. 12
+// turns (6 exchanges) covers a genuine back-and-forth without the prompt
+// growing unboundedly on a long session.
+const MAX_HISTORY_TURNS = 12;
 
-// Structured, single-line JSON logs so they're greppable in Vercel's
-// function log viewer (Project -> Logs) without any extra infrastructure.
-// A future iteration could pipe these into Upstash/Vercel KV for a live
-// /stats dashboard instead of reading them off the log tail by hand.
-function logRequest(entry: Record<string, unknown>) {
-  console.log(JSON.stringify({ event: "ask_request", ...entry }));
+// Structured, single-line JSON logs (greppable in Vercel's function log
+// viewer) plus a best-effort write to Redis for the /stats page. The Redis
+// write inside recordEvent silently no-ops if Upstash isn't configured, so
+// this never depends on stats infrastructure existing.
+async function logRequest(
+  clientKey: string,
+  entry: Omit<AskEvent, "timestamp">,
+) {
+  console.log(JSON.stringify({ event: "ask_request", clientKey, ...entry }));
+  await recordEvent({ ...entry, timestamp: new Date().toISOString() });
 }
 
 const SYSTEM_PROMPT = `You are Citeline, a research assistant that answers questions strictly using the excerpts provided below, drawn from a fixed corpus of machine learning papers.
@@ -45,7 +54,7 @@ export async function POST(req: NextRequest) {
 
   const rateLimit = checkRateLimit(clientKey);
   if (!rateLimit.allowed) {
-    logRequest({ clientKey, outcome: "rate_limited" });
+    await logRequest(clientKey, { outcome: "rate_limited" });
     return Response.json(
       { error: "Too many requests. Please wait a bit before asking again." },
       {
@@ -136,8 +145,7 @@ export async function POST(req: NextRequest) {
             }
           }
         } catch (err) {
-          logRequest({
-            clientKey,
+          await logRequest(clientKey, {
             outcome: "stream_error",
             latencyMs: Date.now() - startedAt,
           });
@@ -145,10 +153,9 @@ export async function POST(req: NextRequest) {
           return;
         }
         controller.close();
-        logRequest({
-          clientKey,
+        await logRequest(clientKey, {
           outcome: "ok",
-          questionLength: question.length,
+          questionPreview: question.slice(0, 150),
           citedPapers: citations.map((c) => c.paperId),
           topScore: citations[0]?.score ?? null,
           answerLength,
@@ -164,8 +171,7 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (err) {
-    logRequest({
-      clientKey,
+    await logRequest(clientKey, {
       outcome: "error",
       latencyMs: Date.now() - startedAt,
     });

@@ -105,27 +105,36 @@ property of the system, not something I'm hiding.
   before/after runs of the eval harness that this doesn't regress the
   broad, cross-paper questions (steady at 77%/90%) while fixing the actual
   reported failures.
-- **In-memory rate limiting instead of Redis.** `/api/ask` is capped at 40
-  requests per 10 minutes per IP, tracked in a plain `Map`. That map isn't
-  shared across serverless instances and resets on cold starts, so it's not
-  a bulletproof defense against a determined, distributed attacker — but it
-  stops casual abuse and accidental loops with zero extra infrastructure.
-  A real production deployment would move this to Upstash/Vercel KV for a
-  single shared counter. A hard monthly spending cap on the OpenAI account
-  itself (Settings → Limits) is the actual backstop against a determined
-  attacker getting past this.
-- **Structured logs instead of a metrics database.** Every request logs a
-  single JSON line (question length, cited papers, top match score,
-  latency) that shows up in Vercel's function log viewer — enough to see
-  what people are asking and whether retrieval is finding anything, without
-  standing up a database for a portfolio project's traffic level.
+- **In-memory rate limiting.** `/api/ask` is capped at 40 requests per 10
+  minutes per IP, tracked in a plain `Map`. That map isn't shared across
+  serverless instances and resets on cold starts, so it's not a bulletproof
+  defense against a determined, distributed attacker — but it stops casual
+  abuse and accidental loops with zero extra infrastructure. Now that Redis
+  is wired up for `/stats`, moving this to a shared counter there would be a
+  small follow-up rather than a new integration — I haven't done it because
+  the in-memory version has been enough in practice. A hard monthly spending
+  cap on the OpenAI account itself (Settings → Limits) is the actual
+  backstop against a determined attacker getting past this either way.
+- **Stats are optional, real infrastructure, not a database I forced in.**
+  `/stats` reads from Upstash Redis (connected via Vercel's Marketplace tab
+  — free tier, no separate signup). Every request writes a few counters and
+  a capped recent-events list; the page reads them back. If Redis isn't
+  connected, `/stats` just says so and everything else in the app works
+  identically — the feature degrades instead of breaking the build.
 
 ## Stack
 
 Next.js 16 (App Router, TypeScript) · Tailwind CSS v4 · OpenAI API
-(`gpt-4o-mini` + `text-embedding-3-small`) · Python ingestion and evaluation
-pipeline (`pypdf`, `tiktoken`) · Vitest for unit tests, GitHub Actions for CI
-— deployed on Vercel.
+(`gpt-4o-mini` + `text-embedding-3-small`) · Upstash Redis for `/stats` ·
+Python ingestion and evaluation pipeline (`pypdf`, `tiktoken`) · Vitest for
+unit tests, GitHub Actions for CI — deployed on Vercel.
+
+## Pages
+
+- `/` — the assistant itself
+- `/corpus` — every paper in the corpus, searchable and filterable by topic
+- `/stats` — real usage data: questions over time, most-retrieved papers,
+  latency, recent questions (needs Redis connected — see Deploying)
 
 ## Testing
 
@@ -178,15 +187,23 @@ Writes `eval/results.md` (human-readable) and `eval/results.json`
 ## Deploying
 
 Push to GitHub, then import the repo in Vercel. Add `OPENAI_API_KEY` as an
-environment variable in the Vercel project settings — no other
-configuration is needed.
+environment variable in the Vercel project settings — that alone is enough
+to run the assistant itself.
+
+For `/stats` to show real data: Vercel dashboard → your project → Storage
+(or Marketplace) → **Upstash for Redis** → connect it to this project (free
+tier, ties to your existing Vercel account, no separate signup) → redeploy.
+`UPSTASH_REDIS_REST_URL`/`UPSTASH_REDIS_REST_TOKEN` get injected
+automatically.
 
 ## Limitations / what's next
 
-- No conversation memory beyond the last few turns — long follow-up chains
-  can lose earlier context.
+- Conversation memory is capped at the last 12 turns — long enough for a
+  real back-and-forth, but a very long session can still lose early context.
 - The bibliography-stripping heuristic in `ingest.py` is a regex looking
   for a "References" heading past 40% of the document; it's right most of
   the time but not verified per paper.
 - At a larger corpus size, retrieval should move to a real vector database
   with re-ranking rather than cosine similarity alone.
+- Rate limiting is still in-memory (see design decisions above) — Redis is
+  connected now, so this is a small follow-up, not a new integration.

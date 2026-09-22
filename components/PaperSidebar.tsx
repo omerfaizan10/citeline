@@ -1,14 +1,6 @@
+import Link from "next/link";
 import type { Paper } from "@/lib/types";
-
-function groupByTopic(papers: Paper[]) {
-  const groups = new Map<string, Paper[]>();
-  for (const paper of papers) {
-    const list = groups.get(paper.topic) ?? [];
-    list.push(paper);
-    groups.set(paper.topic, list);
-  }
-  return Array.from(groups.entries());
-}
+import { groupByTopic } from "@/lib/papers";
 
 export default function PaperSidebar({
   papers,
@@ -31,9 +23,17 @@ export default function PaperSidebar({
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto px-6 pb-6">
-        <p className="mb-4 text-[0.7rem] uppercase tracking-[0.12em] text-muted-2">
-          Corpus &middot; {papers.length} papers
-        </p>
+        <div className="mb-4 flex items-center justify-between">
+          <p className="text-[0.7rem] uppercase tracking-[0.12em] text-muted-2">
+            Corpus &middot; {papers.length} papers
+          </p>
+          <Link
+            href="/corpus"
+            className="text-[0.68rem] text-muted-2 transition-colors hover:text-accent"
+          >
+            Browse all →
+          </Link>
+        </div>
         <div className="space-y-6">
           {groups.map(([topic, items]) => (
             <div key={topic}>
@@ -79,6 +79,14 @@ export default function PaperSidebar({
           </p>
         </details>
         <p className="mt-4 text-[0.68rem] text-muted-2">
+          <Link
+            href="/stats"
+            className="text-muted transition-colors hover:text-accent"
+          >
+            Usage stats
+          </Link>
+        </p>
+        <p className="mt-1.5 text-[0.68rem] text-muted-2">
           Built by{" "}
           <a
             href="https://github.com/omerfaizan10"
