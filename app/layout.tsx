@@ -21,7 +21,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Citeline — Ask the papers",
+  title: "Citeline: Ask the papers",
   description:
     "A retrieval-augmented research assistant that answers questions from a fixed corpus of foundational machine learning papers, with citations back to the source.",
 };

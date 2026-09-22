@@ -12,8 +12,10 @@ const EXAMPLE_PROMPTS = [
 ];
 
 export default function ChatPanel({
+  paperCount,
   onMenuClick,
 }: {
+  paperCount: number;
   onMenuClick?: () => void;
 }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -125,7 +127,8 @@ export default function ChatPanel({
             Research assistant
           </p>
           <p className="text-xs text-muted-2">
-            Answers are grounded in the 17 papers on the left — nothing else.
+            Answers are grounded in the {paperCount} papers on the left, and
+            nothing else.
           </p>
         </div>
       </header>
@@ -142,7 +145,7 @@ export default function ChatPanel({
               </h2>
               <p className="mt-2 max-w-md text-[0.92rem] leading-relaxed text-muted">
                 Questions are answered strictly from the excerpts retrieved out
-                of the corpus in the sidebar — a small, working example of
+                of the corpus in the sidebar: a small, working example of
                 retrieval-augmented generation.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">

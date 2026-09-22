@@ -36,12 +36,12 @@ export default async function StatsPage() {
         </h1>
         <p className="mt-1.5 text-[0.85rem] text-muted">
           What people are actually asking, and whether retrieval is finding
-          anything — logged from real requests, not simulated.
+          anything, logged from real requests, not simulated.
         </p>
 
         {!stats.configured ? (
           <div className="mt-8 rounded-xl border border-border bg-surface px-4 py-4 text-[0.85rem] text-muted">
-            Stats aren&apos;t configured yet — this page reads from Upstash
+            Stats aren&apos;t configured yet. This page reads from Upstash
             Redis, which hasn&apos;t been connected to this deployment. Once it
             is (and a few questions have been asked), real numbers will show up
             here.
@@ -58,7 +58,7 @@ export default async function StatsPage() {
                 value={
                   stats.avgLatencyMs !== null
                     ? `${(stats.avgLatencyMs / 1000).toFixed(1)}s`
-                    : "—"
+                    : "-"
                 }
               />
               <StatTile

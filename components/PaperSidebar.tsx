@@ -74,7 +74,7 @@ export default function PaperSidebar({
             Each paper is chunked and embedded ahead of time. A question is
             embedded the same way, matched against those chunks by cosine
             similarity, and only the closest excerpts are sent to the model as
-            context — so answers are grounded in the corpus rather than the
+            context, so answers are grounded in the corpus rather than the
             model&apos;s general knowledge.
           </p>
         </details>

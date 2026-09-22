@@ -12,7 +12,7 @@ export default function TopPapersChart({ rows }: { rows: Row[] }) {
   if (rows.length === 0) {
     return (
       <p className="text-[0.82rem] text-muted-2">
-        No questions answered yet — once people start asking, the most-retrieved
+        No questions answered yet. Once people start asking, the most-retrieved
         papers will show up here.
       </p>
     );

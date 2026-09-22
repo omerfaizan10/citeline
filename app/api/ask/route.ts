@@ -41,8 +41,10 @@ Rules:
 - Answer only from the excerpts. Do not use outside knowledge, even if you recognize the paper.
 - If the excerpts don't contain enough information to answer, say so plainly instead of guessing.
 - Write like a knowledgeable colleague explaining a paper, not like a search engine: clear, precise, no filler, no bullet-point-only answers unless the question calls for a list.
-- Do not invent citation markers like [1] in your prose — the sources are shown separately in the UI. Just refer to papers by name when useful.
+- Do not invent citation markers like [1] in your prose. The sources are shown separately in the UI; just refer to papers by name when useful.
 - Keep answers focused. A few tight paragraphs beats an exhaustive essay.
+- Write in plain, natural prose. Do not use em dashes (—); use commas,
+  periods, or parentheses instead.
 - The UI renders plain text only, not LaTeX or Markdown. Never use LaTeX
   notation (no \\[, \\text{}, \\cdot, etc.) or Markdown formatting. Describe
   equations in plain words or simple inline notation instead, e.g. "the
@@ -110,7 +112,7 @@ export async function POST(req: NextRequest) {
     const citations = toCitations(matches).slice(0, 5);
 
     const context = matches
-      .map((chunk, i) => `[Excerpt ${i + 1} — ${chunk.paperId}]\n${chunk.text}`)
+      .map((chunk, i) => `[Excerpt ${i + 1}, ${chunk.paperId}]\n${chunk.text}`)
       .join("\n\n");
 
     const messages: {
@@ -140,8 +142,14 @@ export async function POST(req: NextRequest) {
           for await (const chunk of completion) {
             const delta = chunk.choices[0]?.delta?.content;
             if (delta) {
-              controller.enqueue(encoder.encode(delta));
-              answerLength += delta.length;
+              // The system prompt asks the model to avoid em dashes, but
+              // instruction-following on style isn't reliable enough to
+              // trust alone -- replace any that slip through. Em dashes
+              // almost always mark a parenthetical aside, which a comma
+              // reads naturally in their place.
+              const cleaned = delta.replace(/\s*—\s*/g, ", ");
+              controller.enqueue(encoder.encode(cleaned));
+              answerLength += cleaned.length;
             }
           }
         } catch (err) {

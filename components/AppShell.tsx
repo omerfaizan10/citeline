@@ -31,7 +31,10 @@ export default function AppShell({ papers }: { papers: Paper[] }) {
         )}
 
         <main className="min-w-0 flex-1">
-          <ChatPanel onMenuClick={() => setSidebarOpen(true)} />
+          <ChatPanel
+            paperCount={papers.length}
+            onMenuClick={() => setSidebarOpen(true)}
+          />
         </main>
       </div>
     </div>

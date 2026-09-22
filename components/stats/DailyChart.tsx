@@ -30,7 +30,7 @@ export default function DailyChart({ rows }: { rows: Row[] }) {
       <div className="mb-2 h-5 text-[0.72rem] text-accent">
         {hovered && (
           <span>
-            {formatDate(hovered.date)} — {hovered.count}{" "}
+            {formatDate(hovered.date)}: {hovered.count}{" "}
             {hovered.count === 1 ? "question" : "questions"}
           </span>
         )}

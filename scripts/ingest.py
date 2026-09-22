@@ -79,7 +79,7 @@ def extract_text(pdf_path: Path) -> str:
 
 def chunk_text(text: str, encoding: "tiktoken.Encoding") -> list[str]:
     # disallowed_special=() treats strings like "<|endofprompt|>" as plain
-    # text instead of raising — papers that discuss tokenizers (e.g. the
+    # text instead of raising. Papers that discuss tokenizers (e.g. the
     # GPT-4 report) legitimately contain these substrings verbatim.
     tokens = encoding.encode(text, disallowed_special=())
     chunks = []

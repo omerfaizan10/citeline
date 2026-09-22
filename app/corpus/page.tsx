@@ -4,7 +4,7 @@ import papers from "@/data/papers.json";
 import CorpusBrowser from "@/components/CorpusBrowser";
 
 export const metadata: Metadata = {
-  title: "Corpus — Citeline",
+  title: "Corpus: Citeline",
   description: "All papers Citeline can answer questions from.",
 };
 
@@ -21,8 +21,8 @@ export default function CorpusPage() {
 
         <h1 className="mt-4 font-serif text-2xl text-foreground">The corpus</h1>
         <p className="mt-1.5 max-w-lg text-[0.85rem] text-muted">
-          Every paper Citeline can answer questions from — nothing else. Click
-          any title to read the paper itself on arXiv.
+          Every paper Citeline can answer questions from, and nothing else.
+          Click any title to read the paper itself on arXiv.
         </p>
 
         <div className="mt-8">
