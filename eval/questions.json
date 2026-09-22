@@ -1,0 +1,122 @@
+[
+  {
+    "question": "What is the core innovation of the Transformer architecture?",
+    "expectedPaperId": "1706.03762"
+  },
+  {
+    "question": "How does BERT's masked language modeling pretraining objective work?",
+    "expectedPaperId": "1810.04805"
+  },
+  {
+    "question": "What does LoRA freeze, and what does it train instead?",
+    "expectedPaperId": "2106.09685"
+  },
+  {
+    "question": "How does RAG combine a retriever with a generator model?",
+    "expectedPaperId": "2005.11401"
+  },
+  {
+    "question": "What problem do residual connections in ResNet solve?",
+    "expectedPaperId": "1512.03385"
+  },
+  {
+    "question": "How does U-Net use skip connections for biomedical image segmentation?",
+    "expectedPaperId": "1505.04597"
+  },
+  {
+    "question": "How does the Vision Transformer (ViT) apply the Transformer architecture to images?",
+    "expectedPaperId": "2010.11929"
+  },
+  {
+    "question": "What contrastive objective does CLIP use to connect images and text?",
+    "expectedPaperId": "2103.00020"
+  },
+  {
+    "question": "What is the forward diffusion process in DDPM?",
+    "expectedPaperId": "2006.11239"
+  },
+  {
+    "question": "How does the GAN framework set up a minimax game between generator and discriminator?",
+    "expectedPaperId": "1406.2661"
+  },
+  {
+    "question": "What is the reparameterization trick used in the VAE paper?",
+    "expectedPaperId": "1312.6114"
+  },
+  {
+    "question": "How does word2vec learn word embeddings from context?",
+    "expectedPaperId": "1301.3781"
+  },
+  {
+    "question": "What does the Adam optimizer combine from AdaGrad and RMSProp?",
+    "expectedPaperId": "1412.6980"
+  },
+  {
+    "question": "What internal covariate shift problem does Batch Normalization address?",
+    "expectedPaperId": "1502.03167"
+  },
+  {
+    "question": "How does chain-of-thought prompting improve reasoning in large language models?",
+    "expectedPaperId": "2201.11903"
+  },
+  {
+    "question": "What is RLHF, and how does InstructGPT use it?",
+    "expectedPaperId": "2203.02155"
+  },
+  {
+    "question": "How does GraphSAGE generate embeddings for nodes not seen during training?",
+    "expectedPaperId": "1706.02216"
+  },
+  {
+    "question": "What attention mechanism do Graph Attention Networks use over graph neighbors?",
+    "expectedPaperId": "1710.10903"
+  },
+  {
+    "question": "How does wav2vec 2.0 learn speech representations without labels?",
+    "expectedPaperId": "2006.11477"
+  },
+  {
+    "question": "What training data scale does Whisper use for robust speech recognition?",
+    "expectedPaperId": "2212.04356"
+  },
+  {
+    "question": "How does SimCLR construct positive pairs for contrastive learning?",
+    "expectedPaperId": "2002.05709"
+  },
+  {
+    "question": "What does Momentum Contrast (MoCo) use a queue and momentum encoder for?",
+    "expectedPaperId": "1911.05722"
+  },
+  {
+    "question": "How does Proximal Policy Optimization clip the objective to constrain policy updates?",
+    "expectedPaperId": "1707.06347"
+  },
+  {
+    "question": "What does Grad-CAM use to produce visual explanations for CNN predictions?",
+    "expectedPaperId": "1610.02391"
+  },
+  {
+    "question": "How does SHAP unify different feature attribution methods?",
+    "expectedPaperId": "1705.07874"
+  },
+  {
+    "question": "What is the key idea behind FlashAttention's IO-aware algorithm?",
+    "expectedPaperId": "2205.14135"
+  },
+  {
+    "question": "How does QLoRA combine quantization with LoRA fine-tuning?",
+    "expectedPaperId": "2305.14314"
+  },
+  {
+    "question": "What does the Switch Transformer route tokens to?",
+    "expectedPaperId": "2101.03961"
+  },
+  {
+    "question": "How does Megatron-LM split a model's training across GPUs?",
+    "expectedPaperId": "1909.08053"
+  },
+  {
+    "question": "What does the Scaling Laws paper find about the relationship between model size, data, and compute?",
+    "expectedPaperId": "2001.08361"
+  }
+]

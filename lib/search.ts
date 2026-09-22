@@ -28,7 +28,7 @@ function loadChunks(): Chunk[] {
   return cachedChunks;
 }
 
-function cosineSimilarity(a: number[], b: number[]): number {
+export function cosineSimilarity(a: number[], b: number[]): number {
   let dot = 0;
   let normA = 0;
   let normB = 0;
@@ -76,6 +76,7 @@ export function toCitations(chunks: ScoredChunk[]): Citation[] {
         snippet:
           chunk.text.slice(0, 220).trim() +
           (chunk.text.length > 220 ? "…" : ""),
+        score: Math.round(chunk.score * 1000) / 1000,
       };
     });
 }

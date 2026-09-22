@@ -6,7 +6,7 @@ computer vision, generative models, RL, graph neural networks, speech,
 interpretability, and more — with every answer traceable back to the paper
 it came from.
 
-**Live demo:** _add your Vercel URL here once deployed_
+**Live demo:** https://askthepapers.vercel.app
 
 ## Why I built this
 
@@ -33,6 +33,38 @@ in the corpus.
    knows about these papers — only the retrieved text. The answer streams
    back to the browser token by token.
 
+Every citation chip in the UI shows its cosine-similarity score and expands
+to the exact excerpt that was retrieved, so the retrieval step isn't a black
+box — you can see precisely what the model was and wasn't given.
+
+## Does the retrieval actually work?
+
+I didn't want to just claim it does. `eval/questions.json` has 30 questions,
+each written about a specific paper in the corpus, with that paper's arXiv
+id as the expected answer. `scripts/evaluate.py` runs every question against
+the real, running app (not a reimplementation of the search logic) and
+checks whether the expected paper shows up in the citations.
+
+Current results (regenerate anytime with `python scripts/evaluate.py`, full
+breakdown in [`eval/results.md`](eval/results.md)):
+
+- **Top-1 accuracy: 77%** (23/30) — the expected paper was the single
+  closest match
+- **Top-K accuracy: 90%** (27/30) — the expected paper appeared somewhere
+  in the citations shown
+- **Average latency: ~2.7s** per question
+
+The three misses are genuinely informative, not bugs: a question about
+BERT's masked-language-modeling objective pulled RoBERTa, XLNet, and
+ELECTRA instead — all of which legitimately discuss masked pretraining
+objectives and are direct BERT-family papers. A DDPM question pulled DDIM
+and Improved DDPM, both explicit sequels covering the same forward process.
+A word2vec question pulled its own companion paper ("Distributed
+Representations of Words and Phrases"), by the same authors, on the same
+topic. Growing the corpus to include topically-adjacent papers makes these
+"confusable neighbor" cases more likely — that's a real, explainable
+property of the system, not something I'm hiding.
+
 ## A few design decisions
 
 - **In-memory vector search instead of Pinecone/Chroma.** The corpus is
@@ -54,12 +86,38 @@ in the corpus.
 - **The corpus is fixed on purpose.** This is meant to be a working RAG
   pipeline I can reason about completely end to end, not a general-purpose
   paper search engine.
+- **In-memory rate limiting instead of Redis.** `/api/ask` is capped at 40
+  requests per 10 minutes per IP, tracked in a plain `Map`. That map isn't
+  shared across serverless instances and resets on cold starts, so it's not
+  a bulletproof defense against a determined, distributed attacker — but it
+  stops casual abuse and accidental loops with zero extra infrastructure.
+  A real production deployment would move this to Upstash/Vercel KV for a
+  single shared counter. A hard monthly spending cap on the OpenAI account
+  itself (Settings → Limits) is the actual backstop against a determined
+  attacker getting past this.
+- **Structured logs instead of a metrics database.** Every request logs a
+  single JSON line (question length, cited papers, top match score,
+  latency) that shows up in Vercel's function log viewer — enough to see
+  what people are asking and whether retrieval is finding anything, without
+  standing up a database for a portfolio project's traffic level.
 
 ## Stack
 
 Next.js 16 (App Router, TypeScript) · Tailwind CSS v4 · OpenAI API
-(`gpt-4o-mini` + `text-embedding-3-small`) · Python ingestion pipeline
-(`pypdf`, `tiktoken`) — deployed on Vercel.
+(`gpt-4o-mini` + `text-embedding-3-small`) · Python ingestion and evaluation
+pipeline (`pypdf`, `tiktoken`) · Vitest for unit tests, GitHub Actions for CI
+— deployed on Vercel.
+
+## Testing
+
+```bash
+npm test    # unit tests for the retrieval and rate-limiting logic
+npm run lint
+npm run build
+```
+
+All three run on every push via GitHub Actions
+(`.github/workflows/ci.yml`).
 
 ## Running it locally
 
@@ -86,6 +144,17 @@ python ingest.py   # reads OPENAI_API_KEY from ../.env.local
 
 This writes a fresh `data/embeddings.json`. Cost for the default 131-paper
 corpus is well under a dollar.
+
+## Running the evaluation
+
+```bash
+npm run dev                       # in one terminal
+python scripts/evaluate.py        # in another — defaults to localhost:3000
+python scripts/evaluate.py --base-url https://askthepapers.vercel.app
+```
+
+Writes `eval/results.md` (human-readable) and `eval/results.json`
+(machine-readable).
 
 ## Deploying
 

@@ -1,0 +1,401 @@
+{
+  "generatedAt": "2026-09-22T11:45:03.427174+00:00",
+  "baseUrl": "http://localhost:3000",
+  "totalQuestions": 30,
+  "top1Accuracy": 0.767,
+  "topKAccuracy": 0.9,
+  "avgLatencySeconds": 2.71,
+  "errorCount": 0,
+  "results": [
+    {
+      "question": "What is the core innovation of the Transformer architecture?",
+      "expectedPaperId": "1706.03762",
+      "citedPaperIds": [
+        "1910.10683",
+        "2103.14030",
+        "2006.04768",
+        "2001.04451",
+        "1706.03762"
+      ],
+      "hitTop1": false,
+      "hitTopK": true,
+      "latencySeconds": 2.7,
+      "answerPreview": "The core innovation of the Transformer architecture is its reliance entirely on self-attention mechanisms to compute representations of input and outp",
+      "error": null
+    },
+    {
+      "question": "How does BERT's masked language modeling pretraining objective work?",
+      "expectedPaperId": "1810.04805",
+      "citedPaperIds": [
+        "1907.11692",
+        "1906.08237",
+        "2003.10555",
+        "2006.11477"
+      ],
+      "hitTop1": false,
+      "hitTopK": false,
+      "latencySeconds": 2.95,
+      "answerPreview": "BERT's masked language modeling (MLM) pretraining objective involves selecting a random sample of tokens from the input sequence and replacing them wi",
+      "error": null
+    },
+    {
+      "question": "What does LoRA freeze, and what does it train instead?",
+      "expectedPaperId": "2106.09685",
+      "citedPaperIds": [
+        "2305.14314",
+        "2106.09685"
+      ],
+      "hitTop1": false,
+      "hitTopK": true,
+      "latencySeconds": 1.55,
+      "answerPreview": "LoRA, or Low-Rank Adaptation, freezes the pre-trained model weights while training low-rank decomposition matrices that are injected into each layer o",
+      "error": null
+    },
+    {
+      "question": "How does RAG combine a retriever with a generator model?",
+      "expectedPaperId": "2005.11401",
+      "citedPaperIds": [
+        "2005.11401"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 3.35,
+      "answerPreview": "RAG, or Retrieval-Augmented Generation, combines a retriever and a generator model to enhance language generation tasks. The retriever component is de",
+      "error": null
+    },
+    {
+      "question": "What problem do residual connections in ResNet solve?",
+      "expectedPaperId": "1512.03385",
+      "citedPaperIds": [
+        "1512.03385",
+        "1905.10437",
+        "1610.02391",
+        "1905.11946"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.2,
+      "answerPreview": "Residual connections in ResNet address the degradation problem that occurs when increasing the depth of neural networks. Traditional deep networks, re",
+      "error": null
+    },
+    {
+      "question": "How does U-Net use skip connections for biomedical image segmentation?",
+      "expectedPaperId": "1505.04597",
+      "citedPaperIds": [
+        "1505.04597"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 1.85,
+      "answerPreview": "The U-Net architecture employs skip connections to enhance the segmentation process by linking the contracting path, which captures context, to the ex",
+      "error": null
+    },
+    {
+      "question": "How does the Vision Transformer (ViT) apply the Transformer architecture to images?",
+      "expectedPaperId": "2010.11929",
+      "citedPaperIds": [
+        "2010.11929",
+        "2103.14030",
+        "2104.14294"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.95,
+      "answerPreview": "The Vision Transformer (ViT) applies the Transformer architecture to images by processing them as a grid of non-overlapping patches. Each image is div",
+      "error": null
+    },
+    {
+      "question": "What contrastive objective does CLIP use to connect images and text?",
+      "expectedPaperId": "2103.00020",
+      "citedPaperIds": [
+        "2103.00020"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.37,
+      "answerPreview": "CLIP employs a contrastive objective that focuses on maximizing the cosine similarity of the embeddings of correct (image, text) pairs while minimizin",
+      "error": null
+    },
+    {
+      "question": "What is the forward diffusion process in DDPM?",
+      "expectedPaperId": "2006.11239",
+      "citedPaperIds": [
+        "2010.02502",
+        "2102.09672",
+        "1910.02054"
+      ],
+      "hitTop1": false,
+      "hitTopK": false,
+      "latencySeconds": 2.64,
+      "answerPreview": "The forward diffusion process in Denoising Diffusion Probabilistic Models (DDPMs) involves a fixed noising process that adds diagonal Gaussian noise a",
+      "error": null
+    },
+    {
+      "question": "How does the GAN framework set up a minimax game between generator and discriminator?",
+      "expectedPaperId": "1406.2661",
+      "citedPaperIds": [
+        "2003.10555",
+        "1710.09412",
+        "1406.2661"
+      ],
+      "hitTop1": false,
+      "hitTopK": true,
+      "latencySeconds": 2.72,
+      "answerPreview": "In the GAN framework, the generator and discriminator are set up to compete against each other in a minimax game. The generator's role is to transform",
+      "error": null
+    },
+    {
+      "question": "What is the reparameterization trick used in the VAE paper?",
+      "expectedPaperId": "1312.6114",
+      "citedPaperIds": [
+        "1909.11942",
+        "2106.09685",
+        "1312.6114",
+        "1908.09635"
+      ],
+      "hitTop1": false,
+      "hitTopK": true,
+      "latencySeconds": 3.0,
+      "answerPreview": "The reparameterization trick introduced in the Auto-Encoding Variational Bayes (AEVB) paper involves transforming the variational lower bound to yield",
+      "error": null
+    },
+    {
+      "question": "How does word2vec learn word embeddings from context?",
+      "expectedPaperId": "1301.3781",
+      "citedPaperIds": [
+        "1310.4546",
+        "1810.04805",
+        "1901.02860",
+        "1607.04606",
+        "1606.04080"
+      ],
+      "hitTop1": false,
+      "hitTopK": false,
+      "latencySeconds": 2.43,
+      "answerPreview": "Word2vec learns word embeddings by predicting surrounding words in a sentence, which allows the word vectors to represent the distribution of contexts",
+      "error": null
+    },
+    {
+      "question": "What does the Adam optimizer combine from AdaGrad and RMSProp?",
+      "expectedPaperId": "1412.6980",
+      "citedPaperIds": [
+        "1412.6980"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.54,
+      "answerPreview": "The Adam optimizer combines elements from both AdaGrad and RMSProp by utilizing a preconditioner that adapts to the geometry of the data, similar to h",
+      "error": null
+    },
+    {
+      "question": "What internal covariate shift problem does Batch Normalization address?",
+      "expectedPaperId": "1502.03167",
+      "citedPaperIds": [
+        "1502.03167"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.21,
+      "answerPreview": "Batch Normalization addresses the problem of internal covariate shift, which refers to the change in the distribution of each layer's inputs during tr",
+      "error": null
+    },
+    {
+      "question": "How does chain-of-thought prompting improve reasoning in large language models?",
+      "expectedPaperId": "2201.11903",
+      "citedPaperIds": [
+        "2201.11903"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 3.46,
+      "answerPreview": "Chain-of-thought prompting enhances reasoning in large language models by providing a structured approach that involves generating a series of interme",
+      "error": null
+    },
+    {
+      "question": "What is RLHF, and how does InstructGPT use it?",
+      "expectedPaperId": "2203.02155",
+      "citedPaperIds": [
+        "2203.02155",
+        "2305.18290",
+        "2303.08774"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 3.23,
+      "answerPreview": "Reinforcement Learning from Human Feedback (RLHF) is a training approach that typically involves three phases: supervised fine-tuning (SFT), preferenc",
+      "error": null
+    },
+    {
+      "question": "How does GraphSAGE generate embeddings for nodes not seen during training?",
+      "expectedPaperId": "1706.02216",
+      "citedPaperIds": [
+        "1706.02216"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.44,
+      "answerPreview": "GraphSAGE generates embeddings for unseen nodes by leveraging a set of learned aggregator functions that aggregate feature information from a node's l",
+      "error": null
+    },
+    {
+      "question": "What attention mechanism do Graph Attention Networks use over graph neighbors?",
+      "expectedPaperId": "1710.10903",
+      "citedPaperIds": [
+        "1710.10903"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.38,
+      "answerPreview": "Graph Attention Networks (GATs) utilize a masked self-attention mechanism to compute hidden representations of nodes by attending to their neighbors. ",
+      "error": null
+    },
+    {
+      "question": "How does wav2vec 2.0 learn speech representations without labels?",
+      "expectedPaperId": "2006.11477",
+      "citedPaperIds": [
+        "2006.11477"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 3.11,
+      "answerPreview": "Wav2vec 2.0 learns speech representations through a self-supervised learning framework that utilizes raw audio data. The process begins with encoding ",
+      "error": null
+    },
+    {
+      "question": "What training data scale does Whisper use for robust speech recognition?",
+      "expectedPaperId": "2212.04356",
+      "citedPaperIds": [
+        "2212.04356"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 1.79,
+      "answerPreview": "Whisper utilizes a substantial training dataset comprising 680,000 hours of labeled audio, making it one of the largest datasets ever created for supe",
+      "error": null
+    },
+    {
+      "question": "How does SimCLR construct positive pairs for contrastive learning?",
+      "expectedPaperId": "2002.05709",
+      "citedPaperIds": [
+        "2002.05709",
+        "1911.05722"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.14,
+      "answerPreview": "SimCLR constructs positive pairs for contrastive learning by applying a stochastic data augmentation module to the same data example. This process gen",
+      "error": null
+    },
+    {
+      "question": "What does Momentum Contrast (MoCo) use a queue and momentum encoder for?",
+      "expectedPaperId": "1911.05722",
+      "citedPaperIds": [
+        "1911.05722"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.4,
+      "answerPreview": "Momentum Contrast (MoCo) utilizes a queue and a momentum encoder to build large and consistent dictionaries for unsupervised learning with contrastive",
+      "error": null
+    },
+    {
+      "question": "How does Proximal Policy Optimization clip the objective to constrain policy updates?",
+      "expectedPaperId": "1707.06347",
+      "citedPaperIds": [
+        "1707.06347"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 3.63,
+      "answerPreview": "Proximal Policy Optimization (PPO) employs a clipped objective to constrain policy updates by modifying the surrogate objective function. The main obj",
+      "error": null
+    },
+    {
+      "question": "What does Grad-CAM use to produce visual explanations for CNN predictions?",
+      "expectedPaperId": "1610.02391",
+      "citedPaperIds": [
+        "1610.02391"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.54,
+      "answerPreview": "Grad-CAM, or Gradient-weighted Class Activation Mapping, produces visual explanations for CNN predictions by utilizing the gradients of a target conce",
+      "error": null
+    },
+    {
+      "question": "How does SHAP unify different feature attribution methods?",
+      "expectedPaperId": "1705.07874",
+      "citedPaperIds": [
+        "1705.07874"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.97,
+      "answerPreview": "SHAP, or SHapley Additive exPlanation values, unifies various feature attribution methods by introducing a novel perspective that treats any explanati",
+      "error": null
+    },
+    {
+      "question": "What is the key idea behind FlashAttention's IO-aware algorithm?",
+      "expectedPaperId": "2205.14135",
+      "citedPaperIds": [
+        "2205.14135"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.47,
+      "answerPreview": "The key idea behind FlashAttention's IO-aware algorithm is to minimize memory accesses between different levels of GPU memory, specifically between hi",
+      "error": null
+    },
+    {
+      "question": "How does QLoRA combine quantization with LoRA fine-tuning?",
+      "expectedPaperId": "2305.14314",
+      "citedPaperIds": [
+        "2305.14314"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 3.06,
+      "answerPreview": "QLoRA combines quantization with LoRA fine-tuning through two primary techniques: 4-bit NormalFloat (NF4) quantization and Double Quantization. In thi",
+      "error": null
+    },
+    {
+      "question": "What does the Switch Transformer route tokens to?",
+      "expectedPaperId": "2101.03961",
+      "citedPaperIds": [
+        "2101.03961"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 2.07,
+      "answerPreview": "The Switch Transformer routes tokens to a sparse feed-forward network (FFN) layer, specifically a Switch FFN layer. In this architecture, each token i",
+      "error": null
+    },
+    {
+      "question": "How does Megatron-LM split a model's training across GPUs?",
+      "expectedPaperId": "1909.08053",
+      "citedPaperIds": [
+        "1909.08053",
+        "1910.02054",
+        "2102.12092",
+        "2204.02311"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 4.08,
+      "answerPreview": "Megatron-LM employs model parallelism to split a model's training across GPUs by vertically partitioning the computation and parameters in each layer.",
+      "error": null
+    },
+    {
+      "question": "What does the Scaling Laws paper find about the relationship between model size, data, and compute?",
+      "expectedPaperId": "2001.08361",
+      "citedPaperIds": [
+        "2001.08361"
+      ],
+      "hitTop1": true,
+      "hitTopK": true,
+      "latencySeconds": 3.96,
+      "answerPreview": "The Scaling Laws paper investigates the empirical relationships between model size, dataset size, and the amount of compute used for training neural l",
+      "error": null
+    }
+  ]
+}

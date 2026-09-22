@@ -78,6 +78,17 @@ export default function PaperSidebar({
             model&apos;s general knowledge.
           </p>
         </details>
+        <p className="mt-4 text-[0.68rem] text-muted-2">
+          Built by{" "}
+          <a
+            href="https://github.com/omerfaizan10"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted transition-colors hover:text-accent"
+          >
+            Omer Faizan
+          </a>
+        </p>
       </div>
     </div>
   );

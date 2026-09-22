@@ -19,6 +19,7 @@ export type Citation = {
   authors: string;
   year: number;
   snippet: string;
+  score: number;
 };
 
 export type ChatMessage = {

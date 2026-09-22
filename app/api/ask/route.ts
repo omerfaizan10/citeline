@@ -10,12 +10,21 @@ import {
   toCitations,
   CorpusNotIngestedError,
 } from "@/lib/search";
+import { checkRateLimit, getClientKey } from "@/lib/rateLimit";
 import type { ChatMessage } from "@/lib/types";
 
 export const runtime = "nodejs";
 
 const MAX_QUESTION_LENGTH = 800;
 const MAX_HISTORY_TURNS = 4;
+
+// Structured, single-line JSON logs so they're greppable in Vercel's
+// function log viewer (Project -> Logs) without any extra infrastructure.
+// A future iteration could pipe these into Upstash/Vercel KV for a live
+// /stats dashboard instead of reading them off the log tail by hand.
+function logRequest(entry: Record<string, unknown>) {
+  console.log(JSON.stringify({ event: "ask_request", ...entry }));
+}
 
 const SYSTEM_PROMPT = `You are Citeline, a research assistant that answers questions strictly using the excerpts provided below, drawn from a fixed corpus of machine learning papers.
 
@@ -31,6 +40,21 @@ Rules:
   output is the softmax of QK^T divided by the square root of d_k, times V".`;
 
 export async function POST(req: NextRequest) {
+  const startedAt = Date.now();
+  const clientKey = getClientKey(req.headers);
+
+  const rateLimit = checkRateLimit(clientKey);
+  if (!rateLimit.allowed) {
+    logRequest({ clientKey, outcome: "rate_limited" });
+    return Response.json(
+      { error: "Too many requests. Please wait a bit before asking again." },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rateLimit.retryAfterSeconds) },
+      },
+    );
+  }
+
   let body: { question?: string; history?: ChatMessage[] };
   try {
     body = await req.json();
@@ -88,18 +112,36 @@ export async function POST(req: NextRequest) {
     });
 
     const encoder = new TextEncoder();
+    let answerLength = 0;
     const stream = new ReadableStream<Uint8Array>({
       async start(controller) {
         try {
           for await (const chunk of completion) {
             const delta = chunk.choices[0]?.delta?.content;
-            if (delta) controller.enqueue(encoder.encode(delta));
+            if (delta) {
+              controller.enqueue(encoder.encode(delta));
+              answerLength += delta.length;
+            }
           }
         } catch (err) {
+          logRequest({
+            clientKey,
+            outcome: "stream_error",
+            latencyMs: Date.now() - startedAt,
+          });
           controller.error(err);
           return;
         }
         controller.close();
+        logRequest({
+          clientKey,
+          outcome: "ok",
+          questionLength: question.length,
+          citedPapers: citations.map((c) => c.paperId),
+          topScore: citations[0]?.score ?? null,
+          answerLength,
+          latencyMs: Date.now() - startedAt,
+        });
       },
     });
 
@@ -110,6 +152,11 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (err) {
+    logRequest({
+      clientKey,
+      outcome: "error",
+      latencyMs: Date.now() - startedAt,
+    });
     if (err instanceof CorpusNotIngestedError) {
       return Response.json({ error: err.message }, { status: 503 });
     }
