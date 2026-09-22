@@ -1,9 +1,10 @@
 # Citeline
 
 A retrieval-augmented research assistant that answers questions using only a
-fixed corpus of 17 foundational machine learning papers — Transformers,
-BERT, GPT-3, ResNet, diffusion models, LoRA, RAG itself, and others — with
-every answer traceable back to the paper it came from.
+fixed corpus of 131 machine learning papers — spanning Transformers, LLMs,
+computer vision, generative models, RL, graph neural networks, speech,
+interpretability, and more — with every answer traceable back to the paper
+it came from.
 
 **Live demo:** _add your Vercel URL here once deployed_
 
@@ -35,11 +36,16 @@ in the corpus.
 ## A few design decisions
 
 - **In-memory vector search instead of Pinecone/Chroma.** The corpus is
-  small and static (17 papers, ~1,000 chunks), so a linear cosine-similarity
-  scan over a JSON file runs in a few milliseconds and needs no external
-  database, no hosting cost, and no extra moving part to keep alive. That
-  stops being the right call well before 100k+ chunks or frequently
-  changing data — at that point I'd reach for pgvector or Pinecone instead.
+  static (131 papers, ~7,600 chunks), so a linear cosine-similarity scan
+  over a JSON file runs in a few milliseconds and needs no external
+  database, no hosting cost, and no extra moving part to keep alive.
+  The real ceiling on this approach isn't query speed — it's the size of
+  `data/embeddings.json` itself, since it has to ship inside the deployed
+  function. GitHub rejects any single file over 100MB, and Vercel caps an
+  uncompressed serverless function at 250MB; at 512-dim embeddings this
+  corpus sits around 80MB, which is close to as far as this architecture
+  can go. Past that, or for a corpus that changes at runtime, I'd move to
+  pgvector or Pinecone instead.
 - **Citations come from retrieval, not from the model.** The model never
   emits `[1]`-style citation markers — those are notoriously easy for LLMs
   to get wrong (right marker, wrong paper). The citation chips under each
@@ -78,8 +84,8 @@ pip install -r requirements.txt
 python ingest.py   # reads OPENAI_API_KEY from ../.env.local
 ```
 
-This writes a fresh `data/embeddings.json`. Cost for the default 17-paper
-corpus is a few cents.
+This writes a fresh `data/embeddings.json`. Cost for the default 131-paper
+corpus is well under a dollar.
 
 ## Deploying
 

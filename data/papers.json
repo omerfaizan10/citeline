@@ -14,6 +14,70 @@
     "topic": "Transformers"
   },
   {
+    "id": "1901.02860",
+    "title": "Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context",
+    "authors": "Dai et al.",
+    "year": 2019,
+    "topic": "Transformers"
+  },
+  {
+    "id": "2205.14135",
+    "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+    "authors": "Dao et al.",
+    "year": 2022,
+    "topic": "Transformers"
+  },
+  {
+    "id": "2104.09864",
+    "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+    "authors": "Su et al.",
+    "year": 2021,
+    "topic": "Transformers"
+  },
+  {
+    "id": "2002.05202",
+    "title": "GLU Variants Improve Transformer",
+    "authors": "Shazeer",
+    "year": 2020,
+    "topic": "Transformers"
+  },
+  {
+    "id": "1910.07467",
+    "title": "Root Mean Square Layer Normalization",
+    "authors": "Zhang & Sennrich",
+    "year": 2019,
+    "topic": "Transformers"
+  },
+  {
+    "id": "1701.06538",
+    "title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+    "authors": "Shazeer et al.",
+    "year": 2017,
+    "topic": "Transformers"
+  },
+  {
+    "id": "2001.04451",
+    "title": "Reformer: The Efficient Transformer",
+    "authors": "Kitaev et al.",
+    "year": 2020,
+    "topic": "Transformers"
+  },
+  {
+    "id": "2004.05150",
+    "title": "Longformer: The Long-Document Transformer",
+    "authors": "Beltagy et al.",
+    "year": 2020,
+    "topic": "Transformers"
+  },
+  {
+    "id": "2006.04768",
+    "title": "Linformer: Self-Attention with Linear Complexity",
+    "authors": "Wang et al.",
+    "year": 2020,
+    "topic": "Transformers"
+  },
+
+  {
     "id": "2005.14165",
     "title": "Language Models are Few-Shot Learners",
     "authors": "Brown et al.",
@@ -42,6 +106,197 @@
     "topic": "Large Language Models"
   },
   {
+    "id": "1910.10683",
+    "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+    "authors": "Raffel et al.",
+    "year": 2019,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "1906.08237",
+    "title": "XLNet: Generalized Autoregressive Pretraining for Language Understanding",
+    "authors": "Yang et al.",
+    "year": 2019,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "1907.11692",
+    "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
+    "authors": "Liu et al.",
+    "year": 2019,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2003.10555",
+    "title": "ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators",
+    "authors": "Clark et al.",
+    "year": 2020,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "1909.11942",
+    "title": "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations",
+    "authors": "Lan et al.",
+    "year": 2019,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "1804.07461",
+    "title": "GLUE: A Multi-Task Benchmark and Analysis Platform for Natural Language Understanding",
+    "authors": "Wang et al.",
+    "year": 2018,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2204.02311",
+    "title": "PaLM: Scaling Language Modeling with Pathways",
+    "authors": "Chowdhery et al.",
+    "year": 2022,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2302.13971",
+    "title": "LLaMA: Open and Efficient Foundation Language Models",
+    "authors": "Touvron et al.",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2307.09288",
+    "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+    "authors": "Touvron et al.",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2303.08774",
+    "title": "GPT-4 Technical Report",
+    "authors": "OpenAI",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2310.06825",
+    "title": "Mistral 7B",
+    "authors": "Jiang et al.",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2001.08361",
+    "title": "Scaling Laws for Neural Language Models",
+    "authors": "Kaplan et al.",
+    "year": 2020,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2203.15556",
+    "title": "Training Compute-Optimal Large Language Models",
+    "authors": "Hoffmann et al.",
+    "year": 2022,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2101.03961",
+    "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+    "authors": "Fedus et al.",
+    "year": 2021,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2212.08073",
+    "title": "Constitutional AI: Harmlessness from AI Feedback",
+    "authors": "Bai et al.",
+    "year": 2022,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2305.18290",
+    "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+    "authors": "Rafailov et al.",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2212.10560",
+    "title": "Self-Instruct: Aligning Language Models with Self-Generated Instructions",
+    "authors": "Wang et al.",
+    "year": 2022,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2210.03629",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "authors": "Yao et al.",
+    "year": 2022,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2302.04761",
+    "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+    "authors": "Schick et al.",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "1908.10084",
+    "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+    "authors": "Reimers & Gurevych",
+    "year": 2019,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2304.03442",
+    "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+    "authors": "Park et al.",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2305.16291",
+    "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+    "authors": "Wang et al.",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2210.17323",
+    "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+    "authors": "Frantar et al.",
+    "year": 2022,
+    "topic": "Large Language Models"
+  },
+  {
+    "id": "2305.14314",
+    "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "authors": "Dettmers et al.",
+    "year": 2023,
+    "topic": "Large Language Models"
+  },
+
+  {
+    "id": "1706.03741",
+    "title": "Deep reinforcement learning from human preferences",
+    "authors": "Christiano et al.",
+    "year": 2017,
+    "topic": "AI Safety"
+  },
+  {
+    "id": "2202.03286",
+    "title": "Red Teaming Language Models with Language Models",
+    "authors": "Perez et al.",
+    "year": 2022,
+    "topic": "AI Safety"
+  },
+  {
+    "id": "1606.06565",
+    "title": "Concrete Problems in AI Safety",
+    "authors": "Amodei et al.",
+    "year": 2016,
+    "topic": "AI Safety"
+  },
+
+  {
     "id": "2005.11401",
     "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
     "authors": "Lewis et al.",
@@ -49,10 +304,39 @@
     "topic": "Retrieval & Generation"
   },
   {
+    "id": "2004.04906",
+    "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+    "authors": "Karpukhin et al.",
+    "year": 2020,
+    "topic": "Retrieval & Generation"
+  },
+  {
+    "id": "2004.12832",
+    "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+    "authors": "Khattab & Zaharia",
+    "year": 2020,
+    "topic": "Retrieval & Generation"
+  },
+
+  {
     "id": "1512.03385",
     "title": "Deep Residual Learning for Image Recognition",
     "authors": "He et al.",
     "year": 2015,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "1409.1556",
+    "title": "Very Deep Convolutional Networks for Large-Scale Image Recognition",
+    "authors": "Simonyan & Zisserman",
+    "year": 2014,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "1409.4842",
+    "title": "Going Deeper with Convolutions",
+    "authors": "Szegedy et al.",
+    "year": 2014,
     "topic": "Computer Vision"
   },
   {
@@ -63,10 +347,45 @@
     "topic": "Computer Vision"
   },
   {
+    "id": "1506.01497",
+    "title": "Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks",
+    "authors": "Ren et al.",
+    "year": 2015,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "1506.02640",
+    "title": "You Only Look Once: Unified, Real-Time Object Detection",
+    "authors": "Redmon et al.",
+    "year": 2015,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "1703.06870",
+    "title": "Mask R-CNN",
+    "authors": "He et al.",
+    "year": 2017,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "1905.11946",
+    "title": "EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks",
+    "authors": "Tan & Le",
+    "year": 2019,
+    "topic": "Computer Vision"
+  },
+  {
     "id": "2010.11929",
     "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
     "authors": "Dosovitskiy et al.",
     "year": 2020,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "2103.14030",
+    "title": "Swin Transformer: Hierarchical Vision Transformer using Shifted Windows",
+    "authors": "Liu et al.",
+    "year": 2021,
     "topic": "Computer Vision"
   },
   {
@@ -77,10 +396,90 @@
     "topic": "Computer Vision"
   },
   {
+    "id": "2304.02643",
+    "title": "Segment Anything",
+    "authors": "Kirillov et al.",
+    "year": 2023,
+    "topic": "Computer Vision"
+  },
+  {
+    "id": "2003.08934",
+    "title": "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis",
+    "authors": "Mildenhall et al.",
+    "year": 2020,
+    "topic": "Computer Vision"
+  },
+
+  {
+    "id": "2204.14198",
+    "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+    "authors": "Alayrac et al.",
+    "year": 2022,
+    "topic": "Multimodal"
+  },
+  {
+    "id": "2201.12086",
+    "title": "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation",
+    "authors": "Li et al.",
+    "year": 2022,
+    "topic": "Multimodal"
+  },
+  {
+    "id": "2102.12092",
+    "title": "Zero-Shot Text-to-Image Generation",
+    "authors": "Ramesh et al.",
+    "year": 2021,
+    "topic": "Multimodal"
+  },
+  {
+    "id": "2304.08485",
+    "title": "Visual Instruction Tuning",
+    "authors": "Liu et al.",
+    "year": 2023,
+    "topic": "Multimodal"
+  },
+  {
+    "id": "2205.11487",
+    "title": "Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding",
+    "authors": "Saharia et al.",
+    "year": 2022,
+    "topic": "Multimodal"
+  },
+
+  {
+    "id": "1512.02595",
+    "title": "Deep Speech 2: End-to-End Speech Recognition in English and Mandarin",
+    "authors": "Amodei et al.",
+    "year": 2015,
+    "topic": "Speech"
+  },
+  {
+    "id": "2006.11477",
+    "title": "wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations",
+    "authors": "Baevski et al.",
+    "year": 2020,
+    "topic": "Speech"
+  },
+  {
+    "id": "2212.04356",
+    "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+    "authors": "Radford et al.",
+    "year": 2022,
+    "topic": "Speech"
+  },
+
+  {
     "id": "2006.11239",
     "title": "Denoising Diffusion Probabilistic Models",
     "authors": "Ho et al.",
     "year": 2020,
+    "topic": "Generative Models"
+  },
+  {
+    "id": "2112.10752",
+    "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+    "authors": "Rombach et al.",
+    "year": 2021,
     "topic": "Generative Models"
   },
   {
@@ -97,6 +496,307 @@
     "year": 2013,
     "topic": "Generative Models"
   },
+  {
+    "id": "2102.09672",
+    "title": "Improved Denoising Diffusion Probabilistic Models",
+    "authors": "Nichol & Dhariwal",
+    "year": 2021,
+    "topic": "Generative Models"
+  },
+  {
+    "id": "2207.12598",
+    "title": "Classifier-Free Diffusion Guidance",
+    "authors": "Ho & Salimans",
+    "year": 2022,
+    "topic": "Generative Models"
+  },
+  {
+    "id": "2010.02502",
+    "title": "Denoising Diffusion Implicit Models",
+    "authors": "Song et al.",
+    "year": 2020,
+    "topic": "Generative Models"
+  },
+
+  {
+    "id": "2002.05709",
+    "title": "A Simple Framework for Contrastive Learning of Visual Representations",
+    "authors": "Chen et al.",
+    "year": 2020,
+    "topic": "Self-Supervised Learning"
+  },
+  {
+    "id": "1911.05722",
+    "title": "Momentum Contrast for Unsupervised Visual Representation Learning",
+    "authors": "He et al.",
+    "year": 2019,
+    "topic": "Self-Supervised Learning"
+  },
+  {
+    "id": "2006.07733",
+    "title": "Bootstrap your own latent: A new approach to self-supervised Learning",
+    "authors": "Grill et al.",
+    "year": 2020,
+    "topic": "Self-Supervised Learning"
+  },
+  {
+    "id": "2111.06377",
+    "title": "Masked Autoencoders Are Scalable Vision Learners",
+    "authors": "He et al.",
+    "year": 2021,
+    "topic": "Self-Supervised Learning"
+  },
+  {
+    "id": "2104.14294",
+    "title": "Emerging Properties in Self-Supervised Vision Transformers",
+    "authors": "Caron et al.",
+    "year": 2021,
+    "topic": "Self-Supervised Learning"
+  },
+
+  {
+    "id": "1312.5602",
+    "title": "Playing Atari with Deep Reinforcement Learning",
+    "authors": "Mnih et al.",
+    "year": 2013,
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "id": "1502.05477",
+    "title": "Trust Region Policy Optimization",
+    "authors": "Schulman et al.",
+    "year": 2015,
+    "topic": "Reinforcement Learning"
+  },
+  {
+    "id": "1707.06347",
+    "title": "Proximal Policy Optimization Algorithms",
+    "authors": "Schulman et al.",
+    "year": 2017,
+    "topic": "Reinforcement Learning"
+  },
+
+  {
+    "id": "1703.03400",
+    "title": "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks",
+    "authors": "Finn et al.",
+    "year": 2017,
+    "topic": "Meta-Learning & Few-Shot"
+  },
+  {
+    "id": "1606.04080",
+    "title": "Matching Networks for One Shot Learning",
+    "authors": "Vinyals et al.",
+    "year": 2016,
+    "topic": "Meta-Learning & Few-Shot"
+  },
+  {
+    "id": "1703.05175",
+    "title": "Prototypical Networks for Few-shot Learning",
+    "authors": "Snell et al.",
+    "year": 2017,
+    "topic": "Meta-Learning & Few-Shot"
+  },
+
+  {
+    "id": "1609.02907",
+    "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+    "authors": "Kipf & Welling",
+    "year": 2016,
+    "topic": "Graph Neural Networks"
+  },
+  {
+    "id": "1706.02216",
+    "title": "Inductive Representation Learning on Large Graphs",
+    "authors": "Hamilton et al.",
+    "year": 2017,
+    "topic": "Graph Neural Networks"
+  },
+  {
+    "id": "1710.10903",
+    "title": "Graph Attention Networks",
+    "authors": "Veličković et al.",
+    "year": 2017,
+    "topic": "Graph Neural Networks"
+  },
+
+  {
+    "id": "1610.02391",
+    "title": "Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization",
+    "authors": "Selvaraju et al.",
+    "year": 2016,
+    "topic": "Interpretability"
+  },
+  {
+    "id": "1705.07874",
+    "title": "A Unified Approach to Interpreting Model Predictions",
+    "authors": "Lundberg & Lee",
+    "year": 2017,
+    "topic": "Interpretability"
+  },
+  {
+    "id": "1602.04938",
+    "title": "\"Why Should I Trust You?\": Explaining the Predictions of Any Classifier",
+    "authors": "Ribeiro et al.",
+    "year": 2016,
+    "topic": "Interpretability"
+  },
+
+  {
+    "id": "1704.04861",
+    "title": "MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications",
+    "authors": "Howard et al.",
+    "year": 2017,
+    "topic": "Efficiency & Compression"
+  },
+  {
+    "id": "1602.07360",
+    "title": "SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size",
+    "authors": "Iandola et al.",
+    "year": 2016,
+    "topic": "Efficiency & Compression"
+  },
+  {
+    "id": "1712.05877",
+    "title": "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference",
+    "authors": "Jacob et al.",
+    "year": 2017,
+    "topic": "Efficiency & Compression"
+  },
+
+  {
+    "id": "1909.08053",
+    "title": "Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+    "authors": "Shoeybi et al.",
+    "year": 2019,
+    "topic": "Systems & Scaling"
+  },
+  {
+    "id": "1910.02054",
+    "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+    "authors": "Rajbhandari et al.",
+    "year": 2019,
+    "topic": "Systems & Scaling"
+  },
+  {
+    "id": "1811.06965",
+    "title": "GPipe: Efficient Training of Giant Neural Networks using Pipeline Parallelism",
+    "authors": "Huang et al.",
+    "year": 2018,
+    "topic": "Systems & Scaling"
+  },
+
+  {
+    "id": "1905.10437",
+    "title": "N-BEATS: Neural basis expansion analysis for interpretable time series forecasting",
+    "authors": "Oreshkin et al.",
+    "year": 2019,
+    "topic": "Time Series"
+  },
+  {
+    "id": "2012.07436",
+    "title": "Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting",
+    "authors": "Zhou et al.",
+    "year": 2020,
+    "topic": "Time Series"
+  },
+
+  {
+    "id": "1708.05031",
+    "title": "Neural Collaborative Filtering",
+    "authors": "He et al.",
+    "year": 2017,
+    "topic": "Recommender Systems"
+  },
+  {
+    "id": "1606.07792",
+    "title": "Wide & Deep Learning for Recommender Systems",
+    "authors": "Cheng et al.",
+    "year": 2016,
+    "topic": "Recommender Systems"
+  },
+  {
+    "id": "1205.2618",
+    "title": "BPR: Bayesian Personalized Ranking from Implicit Feedback",
+    "authors": "Rendle et al.",
+    "year": 2012,
+    "topic": "Recommender Systems"
+  },
+
+  {
+    "id": "1611.01578",
+    "title": "Neural Architecture Search with Reinforcement Learning",
+    "authors": "Zoph & Le",
+    "year": 2016,
+    "topic": "AutoML"
+  },
+
+  {
+    "id": "1412.6572",
+    "title": "Explaining and Harnessing Adversarial Examples",
+    "authors": "Goodfellow et al.",
+    "year": 2014,
+    "topic": "Adversarial Robustness"
+  },
+  {
+    "id": "1706.06083",
+    "title": "Towards Deep Learning Models Resistant to Adversarial Attacks",
+    "authors": "Madry et al.",
+    "year": 2017,
+    "topic": "Adversarial Robustness"
+  },
+  {
+    "id": "1312.6199",
+    "title": "Intriguing properties of neural networks",
+    "authors": "Szegedy et al.",
+    "year": 2013,
+    "topic": "Adversarial Robustness"
+  },
+
+  {
+    "id": "1602.05629",
+    "title": "Communication-Efficient Learning of Deep Networks from Decentralized Data",
+    "authors": "McMahan et al.",
+    "year": 2016,
+    "topic": "Federated Learning"
+  },
+
+  {
+    "id": "1606.05250",
+    "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text",
+    "authors": "Rajpurkar et al.",
+    "year": 2016,
+    "topic": "Benchmarks"
+  },
+  {
+    "id": "1905.00537",
+    "title": "SuperGLUE: A Stickier Benchmark for General-Purpose Language Understanding Systems",
+    "authors": "Wang et al.",
+    "year": 2019,
+    "topic": "Benchmarks"
+  },
+  {
+    "id": "1905.07830",
+    "title": "HellaSwag: Can a Machine Really Finish Your Sentence?",
+    "authors": "Zellers et al.",
+    "year": 2019,
+    "topic": "Benchmarks"
+  },
+  {
+    "id": "2009.03300",
+    "title": "Measuring Massive Multitask Language Understanding",
+    "authors": "Hendrycks et al.",
+    "year": 2020,
+    "topic": "Benchmarks"
+  },
+  {
+    "id": "2211.09110",
+    "title": "Holistic Evaluation of Language Models",
+    "authors": "Liang et al.",
+    "year": 2022,
+    "topic": "Benchmarks"
+  },
+
   {
     "id": "1301.3781",
     "title": "Efficient Estimation of Word Representations in Vector Space",
@@ -116,6 +816,125 @@
     "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
     "authors": "Ioffe & Szegedy",
     "year": 2015,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1607.06450",
+    "title": "Layer Normalization",
+    "authors": "Ba, Kiros & Hinton",
+    "year": 2016,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1505.00387",
+    "title": "Highway Networks",
+    "authors": "Srivastava et al.",
+    "year": 2015,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1207.0580",
+    "title": "Improving neural networks by preventing co-adaptation of feature detectors",
+    "authors": "Hinton et al.",
+    "year": 2012,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1503.02531",
+    "title": "Distilling the Knowledge in a Neural Network",
+    "authors": "Hinton et al.",
+    "year": 2015,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1409.0473",
+    "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+    "authors": "Bahdanau et al.",
+    "year": 2014,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1409.3215",
+    "title": "Sequence to Sequence Learning with Neural Networks",
+    "authors": "Sutskever et al.",
+    "year": 2014,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1411.4555",
+    "title": "Show and Tell: A Neural Image Caption Generator",
+    "authors": "Vinyals et al.",
+    "year": 2014,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1608.03983",
+    "title": "SGDR: Stochastic Gradient Descent with Warm Restarts",
+    "authors": "Loshchilov & Hutter",
+    "year": 2016,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1711.05101",
+    "title": "Decoupled Weight Decay Regularization",
+    "authors": "Loshchilov & Hutter",
+    "year": 2017,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1211.5063",
+    "title": "On the difficulty of training Recurrent Neural Networks",
+    "authors": "Pascanu et al.",
+    "year": 2012,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1710.09412",
+    "title": "mixup: Beyond Empirical Risk Minimization",
+    "authors": "Zhang et al.",
+    "year": 2017,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1805.09501",
+    "title": "AutoAugment: Learning Augmentation Policies from Data",
+    "authors": "Cubuk et al.",
+    "year": 2018,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1708.04552",
+    "title": "Improved Regularization of Convolutional Neural Networks with Cutout",
+    "authors": "DeVries & Taylor",
+    "year": 2017,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1310.4546",
+    "title": "Distributed Representations of Words and Phrases and their Compositionality",
+    "authors": "Mikolov et al.",
+    "year": 2013,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1607.04606",
+    "title": "Enriching Word Vectors with Subword Information",
+    "authors": "Bojanowski et al.",
+    "year": 2016,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1803.11175",
+    "title": "Universal Sentence Encoder",
+    "authors": "Cer et al.",
+    "year": 2018,
+    "topic": "Foundations"
+  },
+  {
+    "id": "1908.09635",
+    "title": "A Survey on Bias and Fairness in Machine Learning",
+    "authors": "Mehrabi et al.",
+    "year": 2019,
     "topic": "Foundations"
   }
 ]
